@@ -1,4 +1,5 @@
-@import "tailwindcss";
+/* Main CSS Entry - Athena */
+@import "./css/modern.css";
 
 /* 
    Athena Modern Theme Integration
@@ -12,6 +13,7 @@
 */
 
 @layer base {
+
   /* Zorg dat de cart provider knoppen er goed uitzien als ze niet overschreven zijn */
   button {
     cursor: pointer;
@@ -29,13 +31,19 @@
   }
 
   .cart-overlay {
-    @apply w-full max-w-md bg-background h-full shadow-2xl flex flex-col p-8;
+    background-color: var(--color-background);
+    @apply w-full max-w-md h-full shadow-2xl flex flex-col p-8;
     animation: slideIn 0.3s ease-out;
   }
 
   @keyframes slideIn {
-    from { transform: translateX(100%); }
-    to { transform: translateX(0); }
+    from {
+      transform: translateX(100%);
+    }
+
+    to {
+      transform: translateX(0);
+    }
   }
 
   .cart-item {
