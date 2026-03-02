@@ -14,8 +14,10 @@ export default function EditableMedia({ src, alt, className, cmsBind, ...props }
     return null;
   }
 
+    const isRootPublic = src && (src.endsWith('.svg') || src.endsWith('.ico') || (src.includes('.') && !src.includes('/')));
+  const pathPrefix = isRootPublic ? '' : 'images/';
   const finalSrc = (src && !src.startsWith('http') && !src.startsWith('/') && !src.startsWith('data:'))
-    ? `${import.meta.env.BASE_URL}images/${src}`.replace(/\/+/g, '/')
+    ? `${import.meta.env.BASE_URL}${pathPrefix}${src}`.replace(/\/+/g, '/')
     : src;
 
   const isVideo = src && (src.endsWith('.mp4') || src.endsWith('.webm'));
